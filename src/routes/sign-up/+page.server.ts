@@ -25,8 +25,8 @@ export const actions: Actions = {
                 })
                 return hashed;
             }
-            password = await hashPassword(password)
-            const newUsers = await db.insert(user).values({username, password});
+            let password_hash = await hashPassword(password)
+            const newUsers = await db.insert(user).values({username, password_hash});
         }
 
     }
