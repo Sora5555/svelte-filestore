@@ -12,6 +12,12 @@
     <input type="password" name="password" id="password">
     <label for="reconfirm_password">Password</label>
     <input type="password" name="reconfirm_password" id="reconfirm_password">
+    <label for="roles">Roles</label>
+    <select name="role" id="roles">
+        {#each data.roles as role}
+            <option value="{role.id}">{role.namaRole}</option>
+        {/each}
+    </select>
     <button type="submit">Submit</button>
 </form>
 

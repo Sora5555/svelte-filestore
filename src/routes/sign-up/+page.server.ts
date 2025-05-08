@@ -5,9 +5,11 @@ import bcrypt from "bcrypt";
 
 export async function load(){
     const users = await db.query.user.findMany();
+    const roles = await db.query.role.findMany();
 
     return {
-        users: users
+        users: users,
+        roles: roles,
     };
 }
 
@@ -17,6 +19,7 @@ export const actions: Actions = {
         const data = await request.formData();
         let username: FormDataEntryValue | null = data.get("username");
         let password: FormDataEntryValue | null = data.get("password");
+        let role_id: FormDataEntryValue | null = data.get("role");
         let reconfirm_password: FormDataEntryValue | null = data.get("reconfirm_password");
         if(password === reconfirm_password){
             async function hashPassword(plainText: FormDataEntryValue | null) {
@@ -26,7 +29,7 @@ export const actions: Actions = {
                 return hashed;
             }
             let password_hash = await hashPassword(password)
-            const newUsers = await db.insert(user).values({username, passwordHash: password_hash});
+            const newUsers = await db.insert(user).values({username, passwordHash: password_hash, kampusId: 1, roleId: role_id});
         }
 
     }
