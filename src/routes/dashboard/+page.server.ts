@@ -8,7 +8,8 @@ export const load: PageServerLoad = async (event) => {
     if(!event.locals.user){
         redirect(302, "/login")
     }
-    return {user: event.locals.user}
+    console.log(event.locals.user);
+    return {user: event.locals.user, role: event.locals.role}
 }
 
 export const actions: Actions = {

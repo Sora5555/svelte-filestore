@@ -2,4 +2,4 @@
     let {data} = $props();
 </script>
 
-<h1>Hi user {data.user.username}</h1>
+<h1>Hi user {data.role?.namaRole}</h1>
