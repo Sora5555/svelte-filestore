@@ -1,5 +1,6 @@
 <script lang="ts">
     import { enhance } from "$app/forms";
+    import { page } from "$app/state";
     let {data} = $props();
     let namaRole = data.role.namaRole;
 </script>
@@ -20,7 +21,10 @@
         <li>Waiting for data</li>
     {:then kampusData} 
         {#each kampusData as kampus}
-            <li>{kampus.namaKampus} <form action="?/tambahSemester"><input type="hidden" name="idKampus" value="{kampus.id}"> <button type="submit">Tambah Semester</button></form></li>
+            <li>{kampus.namaKampus} Jumlah Semester: {kampus.jumlahSemester.length}<form action="?/tambahSemester&id={kampus.id}" method="post" use:enhance><input type="hidden" name="idKampus" value="{kampus.id}"> <button type="submit">Tambah Semester</button></form></li>
         {/each}
     {/await}
 </ul>
+
+
+<h1>{page.error?.message}</h1>
