@@ -1,8 +1,16 @@
 <script lang="ts">
     import { enhance } from "$app/forms";
-    import { page } from "$app/state";
     let {data} = $props();
     let namaRole = data.role.namaRole;
+    let valueSelectKampus = $state("");
+    let jumlahSemester = $derived.by( () => {
+       let selectedKampus = (data.kampus).filter((value) => {
+            if(value.id.toString() == valueSelectKampus){
+                return value
+            }
+       })
+      return selectedKampus[0]?.jumlahSemester;
+    });
 </script>
 
 {#if namaRole == "admin"}
@@ -17,14 +25,26 @@
 {/if}
 <h1>Hi user {data.role.namaRole}</h1>
 <ul>
-    {#await data.kampus}
-        <li>Waiting for data</li>
-    {:then kampusData} 
-        {#each kampusData as kampus}
-            <li>{kampus.namaKampus} Jumlah Semester: {kampus.jumlahSemester.length}<form action="?/tambahSemester&id={kampus.id}" method="post" use:enhance><input type="hidden" name="idKampus" value="{kampus.id}"> <button type="submit">Tambah Semester</button></form></li>
+        {#each data.kampus as kampus}
+            <li>{kampus.namaKampus} Jumlah Semester: {kampus.jumlahSemester.length}
+                <form action="?/tambahSemester&id={kampus.id}" method="post" use:enhance>
+                    <input type="hidden" name="idKampus" value="{kampus.id}"> 
+                    <button type="submit">Tambah Semester</button>
+                </form>
+            </li>
         {/each}
-    {/await}
 </ul>
 
+<select name="kampusSelect" id="kampusSelect" bind:value={valueSelectKampus} onchange={logThis}>
+        {#each data.kampus as kampus}
+            <option value="{kampus.id}">{kampus.namaKampus}</option>
+        {/each}
+</select>
 
-<h1>{page.error?.message}</h1>
+<select name="semesterSelect" id="semesterSelect"  >
+    {#each jumlahSemester as semester}
+        <option value="{semester.id}">{semester.semester}</option>
+    {/each}
+</select>
+
+

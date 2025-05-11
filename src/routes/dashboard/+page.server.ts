@@ -11,7 +11,7 @@ export const load: PageServerLoad = async (event) => {
     if(!event.locals.user || !event.locals.role){
         redirect(302, "/login")
     }
-    let kampus  = db.query.kampus.findMany({
+    let kampus  = await db.query.kampus.findMany({
         with: {
             jumlahSemester: true,
         }
