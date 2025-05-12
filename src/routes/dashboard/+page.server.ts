@@ -4,7 +4,7 @@ import { error, redirect } from "@sveltejs/kit";
 import type { Actions } from "./$types";
 import { fail } from "@sveltejs/kit";
 import { db } from "$lib/server/db";
-import { kampus, semester } from "$lib/server/db/schema";
+import { kampus, matkul, semester } from "$lib/server/db/schema";
 import { count, eq } from "drizzle-orm";
 
 export const load: PageServerLoad = async (event) => {
@@ -13,7 +13,11 @@ export const load: PageServerLoad = async (event) => {
     }
     let kampus  = await db.query.kampus.findMany({
         with: {
-            jumlahSemester: true,
+            jumlahSemester: {
+                with: {
+                    matkul: true,
+                }
+            },
         }
     });
     return {user: event.locals.user, role: event.locals.role, kampus: kampus}
@@ -49,5 +53,17 @@ export const actions: Actions = {
             })
         }
         const newSemester = await db.insert(semester).values({semester: semesterCount, kampusId: data});
+    },
+    matkulAdd: async({url, request}) => {
+        let data = await request.formData();
+        let namaMatkul = data.get("namaMatkul");
+        let semesterId = data.get("semesterId");
+        if(!semesterId){
+            return fail(422, {
+                semesterId, error: "Pilih Semester terlebih dahulu",
+            })
+        }
+
+        const newMatkul = await db.insert(matkul).values({namaMatkul, semesterId})
     }
 }

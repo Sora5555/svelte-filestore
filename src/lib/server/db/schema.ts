@@ -81,6 +81,7 @@ export const matkulRelations = relations(matkul, ({ one }) => ({
 export const fileUpload = pgTable("fileUpload", {
 	id: serial('id').primaryKey(),
 	namaFile: text('nama_file').notNull(),
+	judul: text('judul').notNull(),
 	userId: integer("user_id").notNull().references(() => user.id),
 	matkulId: integer('matkul_id').notNull().references(() => matkul.id),
 })
