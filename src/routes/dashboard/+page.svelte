@@ -4,14 +4,20 @@
     let namaRole = data.role.namaRole;
     let semesterSelect = $state("") //binding this variable to setup form submit on change
     let valueSelectKampus = $state("");
-    let jumlahSemester = $derived.by( () => {
-       let selectedKampus = (data.kampus).filter((value) => {
+    let jumlahSemester = $state([]);
+    let updateSemester;
+    if(data.role.namaRole == "admin"){
+    updateSemester = () => {
+        let selectedKampus = (data.kampus).filter((value) => {
             if(value.id.toString() == valueSelectKampus){
                 return value
             }
        })
-      return selectedKampus[0]?.jumlahSemester;
-    });
+      jumlahSemester =  selectedKampus[0]?.jumlahSemester;
+    }
+    } else {
+        jumlahSemester = data.kampus[0]?.jumlahSemester
+    }
    
     let jumlahMatkul = $derived.by(() => {
         let selectedSemester = semesterSelect ? jumlahSemester?.filter((value) => {
@@ -32,11 +38,11 @@
     <input type="text" name="singkatanKampus" id="singkatanKampus">
     <button type="submit">Tambah</button>
 </form>
-{/if}
+
 <h1>Hi user {data.role.namaRole}</h1>
 <ul>
-        {#each data.kampus as kampus}
-            <li>{kampus.namaKampus} Jumlah Semester: {kampus.jumlahSemester.length}
+        {#each data?.kampus as kampus}
+            <li>{kampus?.namaKampus} Jumlah Semester: {kampus.jumlahSemester.length}
                 <form action="?/tambahSemester&id={kampus.id}" method="post" use:enhance>
                     <input type="hidden" name="idKampus" value="{kampus.id}"> 
                     <button type="submit">Tambah Semester</button>
@@ -44,18 +50,19 @@
             </li>
         {/each}
 </ul>
-
-<select name="kampusSelect" id="kampusSelect" bind:value={valueSelectKampus}>
+<select name="kampusSelect" id="kampusSelect" bind:value={valueSelectKampus} onchange={updateSemester}>
         {#each data.kampus as kampus}
             <option value="{kampus.id}">{kampus.namaKampus}</option>
         {/each}
 </select>
-
+{/if}
     <select name="semesterSelect" id="semesterSelect" bind:value={semesterSelect}  >
         {#each jumlahSemester as semester}
             <option value="{semester.id}">{semester.semester}</option>
         {/each}
     </select>
+
+
 <form action="?/matkulAdd" method="post" use:enhance>
     {#if form?.error}
         <h1>{form?.error}</h1>

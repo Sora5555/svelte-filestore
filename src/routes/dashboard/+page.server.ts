@@ -11,7 +11,9 @@ export const load: PageServerLoad = async (event) => {
     if(!event.locals.user || !event.locals.role){
         redirect(302, "/login")
     }
-    let kampus  = await db.query.kampus.findMany({
+    let kampusArray: any= [];
+    if(event.locals.role.namaRole == "admin"){
+        kampusArray  = await db.query.kampus.findMany({
         with: {
             jumlahSemester: {
                 with: {
@@ -20,7 +22,19 @@ export const load: PageServerLoad = async (event) => {
             },
         }
     });
-    return {user: event.locals.user, role: event.locals.role, kampus: kampus}
+    } else {
+         kampusArray  = await db.query.kampus.findMany({
+         where: eq(kampus.id, event.locals.user.kampusId),
+         with: {
+            jumlahSemester: {
+                with: {
+                    matkul: true,
+                }
+            },
+        }
+    });
+    }
+    return {user: event.locals.user, role: event.locals.role, kampus: kampusArray}
 }
 
 export const actions: Actions = {
