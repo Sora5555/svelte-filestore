@@ -9,7 +9,6 @@ export const load = async ({params}) => {
     const fileArray = await db.query.fileUpload.findMany({
         where: eq(fileUpload.matkulId, Number(params.namaMatkul))
     })
-    console.log(fileArray, Number(params.namaMatkul));
     return {fileArray}
 }
 

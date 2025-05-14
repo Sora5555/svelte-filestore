@@ -18,6 +18,12 @@
             <option value="{role.id}">{role.namaRole}</option>
         {/each}
     </select>
+    <label for="kampus">Kampus</label>
+    <select name="kampus" id="kampus">
+        {#each data.kampus as kampus}
+            <option value="{kampus.id}">{kampus.namaKampus}</option>
+        {/each}
+    </select>
     <button type="submit">Submit</button>
 </form>
 

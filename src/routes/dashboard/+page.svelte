@@ -21,7 +21,6 @@
         }):[]
         return selectedSemester[0]?.matkul;
     })
-   console.log(form?.error);
 </script>
 
 {#if namaRole == "admin"}
