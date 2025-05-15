@@ -67,7 +67,7 @@ const config = {
 				sm: "calc(var(--radius) - 4px)"
 			},
 			fontFamily: {
-				sans: [...fontFamily.sans]
+				sans: [...fontFamily.sans, "'Kelly Slab"]
 			},
 			keyframes: {
 				"accordion-down": {
@@ -90,7 +90,7 @@ const config = {
       		},
 		},
 	},
-	plugins: [tailwindcssAnimate,  require('autoprefixer')],
+	plugins: [tailwindcssAnimate],
 };
 
 export default config;

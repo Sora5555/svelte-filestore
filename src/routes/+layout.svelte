@@ -1,5 +1,4 @@
 <script lang="ts">
-	
 	import '../app.css';
 	import { enhance } from '$app/forms';
 	let { data, children } = $props();
@@ -10,9 +9,11 @@
 		<ul>
 			<li>Dashboard</li>
 			<li>Matkul</li>
-			<li><form action="/dashboard?/logout" method="post">
-				<button type="submit">Logout</button>
-			</form></li>
+			<li>
+				<form action="/dashboard?/logout" method="post">
+					<button type="submit">Logout</button>
+				</form>
+			</li>
 		</ul>
 	</nav>
 {/if}
