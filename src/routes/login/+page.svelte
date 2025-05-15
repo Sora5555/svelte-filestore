@@ -6,23 +6,23 @@
     let { form } : {form: ActionData} = $props();
 </script>
 
-<Card.Root class="max-w-md text-center px-16 py-4 bg-[#1C1C1C] border-solid border-1 border-[#717171]/50 text-white font-['Kelly_Slab']">
+<Card.Root class="max-w-md text-center px-24 py-2 bg-[#1C1C1C] border-solid border-2 border-[#717171]/50 text-white font-['Kelly_Slab']">
   <Card.Header>
-    <Card.Title class="font-['Kelly_Slab'] text-white text-4xl tracking-wide">LOGIN</Card.Title>
+    <Card.Title class="font-['Kelly_Slab'] text-white text-4xl tracking-wide font-normal">LOGIN</Card.Title>
   </Card.Header>
-  <Card.Content>
-    <form action="?/login" method="post" use:enhance class="flex flex-col gap-14" >
+  <Card.Content class="py-16 text-center">
+    <form action="?/login" method="post" use:enhance class="flex flex-col gap-14 justify-center items-center" >
     <div class="flex flex-col gap-7">
         <div class="flex flex-col gap-2">
-            <label for="username">Username</label>
-            <input type="text" name="username" autocomplete="new-password" id="username" class="text-center autofill:bg-transparent bg-transparent border-0 border-b-2">
+            <!-- <label for="username">Username</label> -->
+            <input type="text" name="username" autocomplete="new-password" id="username" placeholder="Username" class="text-center autofill:bg-transparent bg-transparent border-0 border-b-2 border-white text-white/50">
         </div>
         <div class="flex flex-col gap-2">
-            <label for="password">Password</label>
-            <input type="password" autocomplete="new-password" name="password" id="password"  class="text-center autofill:bg-transparent bg-transparent border-0 border-b-2">
+            <!-- <label for="password">Password</label> -->
+            <input type="password" autocomplete="new-password" name="password" id="password"  placeholder="Password" class="text-center autofill:bg-transparent bg-transparent border-0 border-b-2 border-white text-white/50">
         </div>
     </div>
-    <button type="submit" class="bg-[#EAEAEA] text-[#242424] py-2">Login</button>
+    <button type="submit" class="bg-[#EAEAEA] text-[#242424] w-3/5 rounded-[2px] ">Login</button>
 </form>
   </Card.Content>
 </Card.Root>
