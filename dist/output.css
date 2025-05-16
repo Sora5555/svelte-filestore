@@ -160,7 +160,7 @@ html,
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", 'Kelly Slab;
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", 'Kelly Slab, Jetbrains Mono;
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -644,6 +644,38 @@ input:-webkit-autofill,
   position: static;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.bottom-10 {
+  bottom: 2.5rem;
+}
+
+.bottom-40 {
+  bottom: 10rem;
+}
+
+.left-20 {
+  left: 5rem;
+}
+
+.right-24 {
+  right: 6rem;
+}
+
+.right-40 {
+  right: 10rem;
+}
+
+.top-12 {
+  top: 3rem;
+}
+
+.top-24 {
+  top: 6rem;
+}
+
 .flex {
   display: flex;
 }
@@ -664,28 +696,16 @@ input:-webkit-autofill,
   height: 100vh;
 }
 
-.w-\[100\/2\] {
-  width: 100/2;
-}
-
-.w-\[1\/2\] {
-  width: 1/2;
-}
-
-.w-\[1\/4\] {
-  width: 1/4;
-}
-
 .w-1\/4 {
   width: 25%;
 }
 
-.w-1\/2 {
-  width: 50%;
-}
-
 .w-3\/5 {
   width: 60%;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .max-w-full {
@@ -708,16 +728,12 @@ input:-webkit-autofill,
   justify-content: center;
 }
 
-.gap-14 {
-  gap: 3.5rem;
+.gap-10 {
+  gap: 2.5rem;
 }
 
 .gap-2 {
   gap: 0.5rem;
-}
-
-.gap-7 {
-  gap: 1.75rem;
 }
 
 .space-y-1\.5 > :not([hidden]) ~ :not([hidden]) {
@@ -726,28 +742,12 @@ input:-webkit-autofill,
   margin-bottom: calc(0.375rem * var(--tw-space-y-reverse));
 }
 
-.rounded-lg {
-  border-radius: var(--radius);
-}
-
-.rounded {
-  border-radius: 0.25rem;
-}
-
-.rounded-sm {
-  border-radius: calc(var(--radius) - 4px);
-}
-
-.rounded-\[11px\] {
-  border-radius: 11px;
-}
-
-.rounded-\[4px\] {
-  border-radius: 4px;
-}
-
 .rounded-\[2px\] {
   border-radius: 2px;
+}
+
+.rounded-lg {
+  border-radius: var(--radius);
 }
 
 .border {
@@ -764,10 +764,6 @@ input:-webkit-autofill,
 
 .border-b-2 {
   border-bottom-width: 2px;
-}
-
-.border-b-4 {
-  border-bottom-width: 4px;
 }
 
 .border-solid {
@@ -811,49 +807,14 @@ input:-webkit-autofill,
   padding: 1.5rem;
 }
 
-.px-16 {
-  padding-left: 4rem;
-  padding-right: 4rem;
-}
-
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.px-24 {
-  padding-left: 6rem;
-  padding-right: 6rem;
-}
-
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-
 .py-16 {
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
 
-.px-6 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-.px-12 {
-  padding-left: 3rem;
-  padding-right: 3rem;
-}
-
-.px-20 {
-  padding-left: 5rem;
-  padding-right: 5rem;
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .pb-0 {
@@ -864,6 +825,14 @@ input:-webkit-autofill,
   padding-top: 0px;
 }
 
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -872,24 +841,13 @@ input:-webkit-autofill,
   font-family: 'Kelly Slab';
 }
 
+.font-\[\'Jetbrains_Mono\'\] {
+  font-family: 'Jetbrains Mono';
+}
+
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
-}
-
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
 }
 
 .text-4xl {
@@ -897,12 +855,32 @@ input:-webkit-autofill,
   line-height: 2.5rem;
 }
 
-.font-semibold {
-  font-weight: 600;
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.text-9xl {
+  font-size: 8rem;
+  line-height: 1;
 }
 
 .font-normal {
   font-weight: 400;
+}
+
+.font-semibold {
+  font-weight: 600;
 }
 
 .leading-none {
@@ -922,6 +900,11 @@ input:-webkit-autofill,
   color: rgb(36 36 36 / var(--tw-text-opacity, 1));
 }
 
+.text-\[\#9E9D9D\] {
+  --tw-text-opacity: 1;
+  color: rgb(158 157 157 / var(--tw-text-opacity, 1));
+}
+
 .text-card-foreground {
   --tw-text-opacity: 1;
   color: hsl(var(--card-foreground) / var(--tw-text-opacity, 1));
@@ -935,14 +918,6 @@ input:-webkit-autofill,
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-
-.text-\[\#717171\]\/75 {
-  color: rgb(113 113 113 / 0.75);
-}
-
-.text-white\/75 {
-  color: rgb(255 255 255 / 0.75);
 }
 
 .text-white\/50 {
