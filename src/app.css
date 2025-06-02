@@ -68,6 +68,10 @@
 	}
 }
 
+@theme {
+	--color-main: #2d2d2d;
+}
+
 @layer base {
 	* {
 		@apply border-border;

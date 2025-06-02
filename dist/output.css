@@ -692,10 +692,6 @@ input:-webkit-autofill,
   display: none;
 }
 
-.h-screen {
-  height: 100vh;
-}
-
 .w-1\/4 {
   width: 25%;
 }
@@ -774,6 +770,10 @@ input:-webkit-autofill,
   border-color: rgb(113 113 113 / 0.5);
 }
 
+.border-cardBorder\/50 {
+  border-color: rgb(113 113 113 / 0.5);
+}
+
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
@@ -784,12 +784,12 @@ input:-webkit-autofill,
   background-color: rgb(28 28 28 / var(--tw-bg-opacity, 1));
 }
 
-.bg-\[\#2D2D2D\] {
+.bg-\[\#EAEAEA\] {
   --tw-bg-opacity: 1;
-  background-color: rgb(45 45 45 / var(--tw-bg-opacity, 1));
+  background-color: rgb(234 234 234 / var(--tw-bg-opacity, 1));
 }
 
-.bg-\[\#EAEAEA\] {
+.bg-buttonBackground {
   --tw-bg-opacity: 1;
   background-color: rgb(234 234 234 / var(--tw-bg-opacity, 1));
 }
@@ -799,8 +799,22 @@ input:-webkit-autofill,
   background-color: hsl(var(--card) / var(--tw-bg-opacity, 1));
 }
 
+.bg-main {
+  --tw-bg-opacity: 1;
+  background-color: rgb(45 45 45 / var(--tw-bg-opacity, 1));
+}
+
 .bg-transparent {
   background-color: transparent;
+}
+
+.bg-cardBackground {
+  --tw-bg-opacity: 1;
+  background-color: rgb(28 28 28 / var(--tw-bg-opacity, 1));
+}
+
+.p-14 {
+  padding: 3.5rem;
 }
 
 .p-6 {
@@ -821,6 +835,10 @@ input:-webkit-autofill,
   padding-bottom: 0px;
 }
 
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+
 .pt-0 {
   padding-top: 0px;
 }
@@ -829,20 +847,24 @@ input:-webkit-autofill,
   padding-top: 0.5rem;
 }
 
-.pb-10 {
-  padding-bottom: 2.5rem;
-}
-
 .text-center {
   text-align: center;
+}
+
+.font-\[\'Jetbrains_Mono\'\] {
+  font-family: 'Jetbrains Mono';
 }
 
 .font-\[\'Kelly_Slab\'\] {
   font-family: 'Kelly Slab';
 }
 
-.font-\[\'Jetbrains_Mono\'\] {
-  font-family: 'Jetbrains Mono';
+.font-jetBrains {
+  font-family: Jetbrains Mono;
+}
+
+.font-kellySlab {
+  font-family: Kelly Slab;
 }
 
 .text-2xl {
@@ -855,6 +877,11 @@ input:-webkit-autofill,
   line-height: 2.5rem;
 }
 
+.text-9xl {
+  font-size: 8rem;
+  line-height: 1;
+}
+
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -863,16 +890,6 @@ input:-webkit-autofill,
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
-}
-
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
-}
-
-.text-9xl {
-  font-size: 8rem;
-  line-height: 1;
 }
 
 .font-normal {
@@ -905,9 +922,19 @@ input:-webkit-autofill,
   color: rgb(158 157 157 / var(--tw-text-opacity, 1));
 }
 
+.text-buttonText {
+  --tw-text-opacity: 1;
+  color: rgb(36 36 36 / var(--tw-text-opacity, 1));
+}
+
 .text-card-foreground {
   --tw-text-opacity: 1;
   color: hsl(var(--card-foreground) / var(--tw-text-opacity, 1));
+}
+
+.text-linkText {
+  --tw-text-opacity: 1;
+  color: rgb(158 157 157 / var(--tw-text-opacity, 1));
 }
 
 .text-muted-foreground {
@@ -948,10 +975,19 @@ input:-webkit-autofill,
   }
 }
 
+@theme {
+  --color-main: #2d2d2d;
+}
+
 .autofill\:bg-transparent:-webkit-autofill {
   background-color: transparent;
 }
 
 .autofill\:bg-transparent:autofill {
   background-color: transparent;
+}
+
+.focus\:bg-\[\#2D2D2D\]:focus {
+  --tw-bg-opacity: 1;
+  background-color: rgb(45 45 45 / var(--tw-bg-opacity, 1));
 }
