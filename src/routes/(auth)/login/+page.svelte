@@ -2,13 +2,16 @@
 	import { enhance } from '$app/forms';
 	import type { ActionData } from './$types';
 	import * as Card from '$lib/components/ui/card/index';
+	import Title from '$lib/components/title.svelte';
+	import Input from '$lib/components/input.svelte';
+	import Button from '$lib/components/button.svelte';
 
 	let { form }: { form: ActionData } = $props();
 </script>
 
-<h1 class="font-jetBrains pb-10 text-center text-9xl text-white">TOKU</h1>
+<Title></Title>
 <Card.Root
-	class="border-cardBorder/50 bg-cardBackground font-kellySlab w-3/5 max-w-md border-2 border-solid py-2 text-center text-white"
+	class="w-3/5 max-w-md border-2 border-solid border-cardBorder/50 bg-cardBackground py-2 text-center font-kellySlab text-white"
 >
 	<Card.Header>
 		<Card.Title class="font-kellySlab text-4xl font-normal tracking-wide text-white"
@@ -25,30 +28,14 @@
 			<div class="flex flex-col gap-10">
 				<div class="flex flex-col gap-2">
 					<!-- <label for="username">Username</label> -->
-					<input
-						type="text"
-						name="username"
-						autocomplete="new-password"
-						id="username"
-						placeholder="Username"
-						class="border-0 border-b-2 border-white bg-transparent text-center text-white/50 autofill:bg-transparent"
-					/>
+					<Input type="text" name="username" id="username" placeholder="Username"></Input>
 				</div>
 				<div class="flex flex-col gap-2">
 					<!-- <label for="password">Password</label> -->
-					<input
-						type="password"
-						autocomplete="new-password"
-						name="password"
-						id="password"
-						placeholder="Password"
-						class="border-0 border-b-2 border-white bg-transparent text-center text-white/50 autofill:bg-transparent"
-					/>
+					<Input type="password" name="password" id="password" placeholder="Password"></Input>
 				</div>
 			</div>
-			<button type="submit" class="text-buttonText bg-buttonBackground w-1/4 rounded-[2px] text-lg"
-				>Login</button
-			>
+			<Button display="Login"></Button>
 		</form>
 		<div class="flex w-full justify-center gap-2 pt-2">
 			<p class="">Don't have an account?</p>

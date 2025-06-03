@@ -5,7 +5,7 @@ import tailwindcssAnimate from 'tailwindcss-animate';
 const config = {
 	darkMode: ['class'],
 	content: ['./src/**/*.{html,js,svelte,ts}'],
-	safelist: ['dark'],
+	safelist: ['dark', 'text-9xl'],
 	theme: {
 		container: {
 			center: true,
@@ -77,6 +77,7 @@ const config = {
 				kellySlab: ['Kelly Slab'],
 				jetBrains: ['Jetbrains Mono']
 			},
+
 			keyframes: {
 				'accordion-down': {
 					from: { height: '0' },
