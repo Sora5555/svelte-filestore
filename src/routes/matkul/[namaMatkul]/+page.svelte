@@ -8,6 +8,7 @@
 	let { data } = $props();
 </script>
 
+<a onclick={history.back()} class="cursor-pointer text-linkText">Kembali</a>
 <form
 	action="?/pertemuanAdd"
 	method="post"
@@ -21,7 +22,7 @@
 	></Input>
 	<Button display="Tambah Pertemuan"></Button>
 </form>
-<h1 class="w-full text-center text-6xl">Daftar File {data.matkulData?.namaMatkul}</h1>
+<h1 class="w-full text-center text-6xl">Daftar Pertemuan {data.matkulData?.namaMatkul}</h1>
 <div class="flex flex-wrap justify-center gap-12 py-4">
 	{#each data.pertemuanArray as value}
 		<Card.Root

@@ -17,4 +17,5 @@
 		</ul>
 	</nav>
 {/if}
+<a onclick={history.back()} class="cursor-pointer text-linkText">Kembali</a>
 <div class="mt-8 bg-main text-white">{@render children()}</div>

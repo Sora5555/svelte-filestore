@@ -35,40 +35,18 @@
 	});
 </script>
 
-{#if namaRole == 'admin'}
-	<h5>Tambah kampus</h5>
-	<form action="?/tambahKampus" method="post" use:enhance>
-		<label for="namaKampus">Nama Kampus</label>
-		<input type="text" name="namaKampus" id="namaKampus" />
-		<label for="singkatanKampus">Singkatan Kampus</label>
-		<input type="text" name="singkatanKampus" id="singkatanKampus" />
-		<button type="submit">Tambah</button>
-	</form>
+<div class=" flex w-full items-center justify-center gap-8 text-center">
+	{#if namaRole == 'admin'}
+		<Select
+			name="kampusSelect"
+			id="kampusSelect"
+			bind:bindValue={valueSelectKampus}
+			displayAttr="namaKampus"
+			defaultChoice="Pilih Kampus"
+			data={data.kampus}
+		></Select>
+	{/if}
 
-	<h1>Hi user {data.role.namaRole}</h1>
-	<ul>
-		{#each data?.kampus as kampus}
-			<li>
-				{kampus?.namaKampus} Jumlah Semester: {kampus.jumlahSemester.length}
-				<form action="?/tambahSemester&id={kampus.id}" method="post" use:enhance>
-					<input type="hidden" name="idKampus" value={kampus.id} />
-					<button type="submit">Tambah Semester</button>
-				</form>
-			</li>
-		{/each}
-	</ul>
-	<select
-		name="kampusSelect"
-		id="kampusSelect"
-		bind:value={valueSelectKampus}
-		onchange={updateSemester}
-	>
-		{#each data.kampus as kampus}
-			<option value={kampus.id}>{kampus.namaKampus}</option>
-		{/each}
-	</select>
-{/if}
-<div class=" mx-4 flex w-56 flex-col justify-center gap-8 text-center">
 	<Select
 		name="semesterSelect"
 		id="semesterSelect"
@@ -78,7 +56,12 @@
 		bind:bindValue={semesterSelect}
 	></Select>
 
-	<form action="?/matkulAdd" method="post" use:enhance class="flex flex-col items-center">
+	<form
+		action="?/matkulAdd"
+		method="post"
+		use:enhance
+		class="flex items-center justify-between gap-4"
+	>
 		{#if form?.error}
 			<h1>{form?.error}</h1>
 		{/if}
