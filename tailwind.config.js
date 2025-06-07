@@ -21,6 +21,7 @@ const config = {
 				cardBorder: '#717171',
 				buttonBackground: '#EAEAEA',
 				buttonText: '#242424',
+				buttonDelete: 'rgb(233 35 35)',
 				linkText: '#9E9D9D',
 				border: 'hsl(var(--border) / <alpha-value>)',
 				input: 'hsl(var(--input) / <alpha-value>)',

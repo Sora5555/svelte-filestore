@@ -2,14 +2,16 @@
 	import { enhance } from '$app/forms';
 	import { afterNavigate } from '$app/navigation';
 	import { page } from '$app/state';
+	import Back from '$lib/components/back.svelte';
 	import Button from '$lib/components/button.svelte';
+	import Delete from '$lib/components/delete.svelte';
 	import Input from '$lib/components/input.svelte';
 	import * as Card from '$lib/components/ui/card/index';
 	import { onMount } from 'svelte';
 	let { data } = $props();
 </script>
 
-<a onclick={history.back()} class="cursor-pointer text-linkText">Kembali</a>
+<Back />
 <form
 	action="?/fileUpload"
 	method="post"
@@ -38,7 +40,15 @@
 			</Card.Header>
 			<Card.Content class="flex w-full flex-col justify-center gap-8 text-center">
 				<img src="/files/{item.namaFile}" alt="" class="w-full object-cover" />
-				<a href="/files/{item.namaFile}" class="text-center text-white/50" download>Download</a>
+				<div class="flex justify-center gap-4">
+					<a href="/files/{item.namaFile}" class="text-center text-white/50" download>Download</a>
+					{#if data.role?.namaRole == 'admin'}
+						<form action="?/deleteFile" method="POST">
+							<input type="hidden" name="id" id="id" value={item.id} />
+							<Delete />
+						</form>
+					{/if}
+				</div>
 				<!-- <img src="/files/{value.namaFile}" alt="" class="w-full object-cover" /> -->
 			</Card.Content>
 		</Card.Root>

@@ -12,7 +12,7 @@ export const user = pgTable('user', {
 		.references(() => kampus.id),
 	roleId: integer('role_id')
 		.notNull()
-		.references(() => role.id)
+		.references(() => role.id, { onDelete: 'cascade' })
 });
 
 export const role = pgTable('roles', {
@@ -59,7 +59,7 @@ export const semester = pgTable('semester', {
 	semester: semesterEnum(),
 	kampusId: integer('kampus_id')
 		.notNull()
-		.references(() => kampus.id)
+		.references(() => kampus.id, { onDelete: 'cascade' })
 });
 
 export const semesterRelations = relations(semester, ({ many, one }) => ({
@@ -75,7 +75,7 @@ export const matkul = pgTable('matkul', {
 	namaMatkul: text('nama_matkul').notNull(),
 	semesterId: integer('semester_id')
 		.notNull()
-		.references(() => semester.id)
+		.references(() => semester.id, { onDelete: 'cascade' })
 });
 
 export const matkulRelations = relations(matkul, ({ one, many }) => ({
@@ -92,7 +92,7 @@ export const pertemuan = pgTable('pertemuan', {
 	judulPertemuan: text('judul_pertemuan').notNull(),
 	matkulId: integer('matkul_id')
 		.notNull()
-		.references(() => matkul.id)
+		.references(() => matkul.id, { onDelete: 'cascade' })
 });
 export const pertemuanRelations = relations(pertemuan, ({ one, many }) => ({
 	pertemuanMatkul: one(matkul, {
@@ -107,10 +107,10 @@ export const fileUpload = pgTable('fileUpload', {
 	judul: text('judul').notNull(),
 	userId: integer('user_id')
 		.notNull()
-		.references(() => user.id),
+		.references(() => user.id, { onDelete: 'cascade' }),
 	pertemuanId: integer('pertemuan_id')
 		.notNull()
-		.references(() => pertemuan.id)
+		.references(() => pertemuan.id, { onDelete: 'cascade' })
 });
 export const fileUploadRelations = relations(fileUpload, ({ one }) => ({
 	uploader: one(user, {

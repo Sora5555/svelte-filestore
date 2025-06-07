@@ -3,7 +3,7 @@ import { fileUpload, pertemuan } from '$lib/server/db/schema.js';
 import { eq } from 'drizzle-orm';
 import type { Actions } from './$types.js';
 import path from 'path';
-import { writeFile } from 'fs/promises';
+import { unlink, writeFile } from 'fs/promises';
 
 export const load = async ({ params }) => {
 	const fileUploadArray = await db.query.fileUpload.findMany({
@@ -31,5 +31,12 @@ export const actions: Actions = {
 			userId: locals.user?.id,
 			pertemuanId: params.pertemuan
 		});
+	},
+	deleteFile: async ({ request, locals, params }) => {
+		let data = await request.formData();
+		let id = data.get('id');
+		let fileData = await db.delete(fileUpload).where(eq(fileUpload.id, id)).returning();
+		let file = path.join(process.cwd(), 'static', 'files', fileData[0]?.namaFile);
+		unlink(file);
 	}
 };

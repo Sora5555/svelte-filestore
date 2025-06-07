@@ -35,7 +35,7 @@ export const load: PageServerLoad = async (event) => {
 			}
 		});
 	}
-	return { user: event.locals.user, role: event.locals.role, kampus: kampusArray };
+	return { user: event.locals.user, kampus: kampusArray };
 };
 
 export const actions: Actions = {

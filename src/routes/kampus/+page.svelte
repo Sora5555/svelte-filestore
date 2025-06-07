@@ -1,5 +1,6 @@
 <script>
 	import { enhance } from '$app/forms';
+	import Back from '$lib/components/back.svelte';
 	import Button from '$lib/components/button.svelte';
 	import Input from '$lib/components/input.svelte';
 	import * as Card from '$lib/components/ui/card/index';
@@ -7,6 +8,7 @@
 	let { data } = $props();
 </script>
 
+<Back />
 <form action="?/tambahKampus" method="post" use:enhance class="flex w-full justify-center gap-8">
 	<Input type="text" name="namaKampus" id="namaKampus" placeholder="Nama Kampus"></Input>
 	<Input type="text" name="singkatanKampus" id="singkatanKampus" placeholder="Singkatan Kampus"

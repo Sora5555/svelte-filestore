@@ -25,5 +25,10 @@ export const actions: Actions = {
 			judulPertemuan: judulPertemuan,
 			matkulId: params.namaMatkul
 		});
+	},
+	deletePertemuan: async ({ request, locals, params }) => {
+		let data = await request.formData();
+		let id = data.get('id');
+		let fileData = await db.delete(pertemuan).where(eq(pertemuan.id, id));
 	}
 };

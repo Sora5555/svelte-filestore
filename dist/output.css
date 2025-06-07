@@ -676,11 +676,6 @@ input:-webkit-autofill,
   top: 6rem;
 }
 
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -706,36 +701,16 @@ input:-webkit-autofill,
   display: none;
 }
 
+.w-1\/5 {
+  width: 20%;
+}
+
 .w-3\/5 {
   width: 60%;
 }
 
-.w-56 {
-  width: 14rem;
-}
-
 .w-full {
   width: 100%;
-}
-
-.w-2\/5 {
-  width: 40%;
-}
-
-.w-2\/4 {
-  width: 50%;
-}
-
-.w-3\/4 {
-  width: 75%;
-}
-
-.w-1\/4 {
-  width: 25%;
-}
-
-.w-1\/5 {
-  width: 20%;
 }
 
 .max-w-full {
@@ -744,6 +719,10 @@ input:-webkit-autofill,
 
 .max-w-md {
   max-width: 28rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .flex-col {
@@ -758,6 +737,10 @@ input:-webkit-autofill,
   align-items: center;
 }
 
+.justify-start {
+  justify-content: flex-start;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -766,28 +749,24 @@ input:-webkit-autofill,
   justify-content: space-between;
 }
 
-.justify-around {
-  justify-content: space-around;
-}
-
 .gap-10 {
   gap: 2.5rem;
+}
+
+.gap-12 {
+  gap: 3rem;
 }
 
 .gap-2 {
   gap: 0.5rem;
 }
 
-.gap-8 {
-  gap: 2rem;
-}
-
 .gap-4 {
   gap: 1rem;
 }
 
-.gap-12 {
-  gap: 3rem;
+.gap-8 {
+  gap: 2rem;
 }
 
 .space-y-1\.5 > :not([hidden]) ~ :not([hidden]) {
@@ -857,6 +836,11 @@ input:-webkit-autofill,
   background-color: transparent;
 }
 
+.bg-buttonDelete {
+  --tw-bg-opacity: 1;
+  background-color: rgb(233 35 35 / var(--tw-bg-opacity, 1));
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -875,6 +859,11 @@ input:-webkit-autofill,
   padding-right: 1.25rem;
 }
 
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 .py-16 {
   padding-top: 4rem;
   padding-bottom: 4rem;
@@ -885,14 +874,14 @@ input:-webkit-autofill,
   padding-bottom: 0.5rem;
 }
 
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .py-8 {

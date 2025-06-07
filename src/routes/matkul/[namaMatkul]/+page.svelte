@@ -1,14 +1,16 @@
 <script>
 	import { enhance } from '$app/forms';
 	import { page } from '$app/state';
+	import Back from '$lib/components/back.svelte';
 	import Button from '$lib/components/button.svelte';
+	import Delete from '$lib/components/delete.svelte';
 	import Input from '$lib/components/input.svelte';
 	import * as Card from '$lib/components/ui/card/index';
 
 	let { data } = $props();
 </script>
 
-<a onclick={history.back()} class="cursor-pointer text-linkText">Kembali</a>
+<Back />
 <form
 	action="?/pertemuanAdd"
 	method="post"
@@ -34,9 +36,17 @@
 				>
 			</Card.Header>
 			<Card.Content class="flex w-full justify-center text-center">
-				<a href="/matkul/{data.matkulData?.id}/{value.id}" class="text-center text-white/50"
-					>Pertemuan ke: {value.nomorPertemuan}</a
-				>
+				<div class="flex justify-center gap-4">
+					<a href="/matkul/{data.matkulData?.id}/{value.id}" class="text-center text-white/50"
+						>Pertemuan ke: {value.nomorPertemuan}</a
+					>
+					{#if data.role?.namaRole == 'admin'}
+						<form action="?/deletePertemuan" method="POST">
+							<input type="hidden" name="id" id="id" value={value.id} />
+							<Delete />
+						</form>
+					{/if}
+				</div>
 				<!-- <img src="/files/{value.namaFile}" alt="" class="w-full object-cover" /> -->
 			</Card.Content>
 		</Card.Root>
